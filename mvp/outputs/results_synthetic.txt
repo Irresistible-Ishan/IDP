@@ -1,0 +1,24 @@
+[check] gamma=1.25: mask(P^(1/g)>0.5) vs mask(P>0.5^g) mismatch = 0.000000
+[check] gamma=1.5: mask(P^(1/g)>0.5) vs mask(P>0.5^g) mismatch = 0.000000
+[check] gamma=2.0: mask(P^(1/g)>0.5) vs mask(P>0.5^g) mismatch = 0.000000
+[check] P-only 'adaptive' gamma (alpha=1) is monotone in P: True; => equivalent to threshold P>0.3099
+[info] val-selected: B B gamma=2.0 | C C tau=0.25 | D D P-only-gamma alpha=2.0
+[info] running bridge searches (this is the slow part)...
+   val done (125s)
+   test done (367s)
+
+TEST SET (synthetic, 24 worlds; params chosen on 8 VAL worlds)
+method                                                             APLS*  Buf-P  Buf-R  Buf-F1 GapRec | dAPLS [95% CI]        dF1 [95% CI]
+------------------------------------------------------------------------------------------------------------------------------------------
+A baseline tau=0.5                                                 0.623  0.999  0.897  0.945  0.167 | +0.000 [+0.000,+0.000]  +0.000 [+0.000,+0.000]
+B gamma=2.0                                                        0.762  0.896  0.971  0.932  0.758 | +0.138 [+0.072,+0.209]  -0.013 [-0.021,-0.005]
+C tau=0.25                                                         0.762  0.896  0.971  0.932  0.758 | +0.138 [+0.072,+0.209]  -0.013 [-0.021,-0.005]
+D P-only-gamma alpha=2.0                                           0.859  0.896  0.993  0.942  0.956 | +0.235 [+0.180,+0.294]  -0.003 [-0.010,+0.003]
+E distance-only bridging (Paper-1 style)                           0.861  0.958  0.940  0.949  0.550 | +0.237 [+0.182,+0.295]  +0.004 [-0.002,+0.009]
+F gamma=2.0 + distance-only bridging (Paper-1 hybrid)              0.805  0.835  0.987  0.904  0.893 | +0.181 [+0.113,+0.251]  -0.041 [-0.050,-0.032]
+G0 evidence-only (p_min=0.2)                                       0.876  0.978  0.940  0.958  0.544 | +0.252 [+0.197,+0.311]  +0.013 [+0.008,+0.018]
+G1 direction-only (lam=2.0)                                        0.859  0.957  0.941  0.949  0.561 | +0.235 [+0.181,+0.291]  +0.004 [-0.001,+0.009]
+G2 direction+evidence (lam=4.0, p_min=0.2)  <-- proposed           0.879  0.979  0.940  0.959  0.550 | +0.255 [+0.201,+0.311]  +0.014 [+0.010,+0.018]
+
+* APLS-lite / Buf-F1 are proxies on synthetic data, NOT the official TOPO/APLS.
+total time 388s
