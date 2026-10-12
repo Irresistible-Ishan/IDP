@@ -1,0 +1,23 @@
+# SpaceNet & Satellite Datasets
+data/AOI_*/
+data/SpaceNet_*/
+*.tar.gz
+*.tar
+*.zip
+*.tif
+*.tiff
+*.geojson
+
+# Generated plot images
+data/*.png
+
+# Python & Environment artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+venv/
+env/
+.DS_Store

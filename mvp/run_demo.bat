@@ -1,4 +1,6 @@
 @echo off
+echo Installing required dependencies...
+pip install -r requirements.txt -q
 echo Starting Streamlit App for IDP Demonstration...
 python -m streamlit run frontend.py
 pause
